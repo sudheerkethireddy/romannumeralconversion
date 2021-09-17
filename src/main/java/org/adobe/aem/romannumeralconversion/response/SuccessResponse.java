@@ -8,7 +8,6 @@ public class SuccessResponse {
     private String integerInput; // given input integer
     private String romanOutput; // roman representation of the input integer
 
-
     public SuccessResponse(String integerInput, String romanOutput) {
         this.integerInput = integerInput;
         this.romanOutput = romanOutput;
@@ -18,7 +17,6 @@ public class SuccessResponse {
         this.integerInput = integerInput;
         this.romanOutput = romanOutput;
     }
-
 
     public String getIntegerInput() {
         return integerInput;

@@ -2,7 +2,6 @@ package org.adobe.aem.romannumeralconversion.controller;
 
 
 import org.adobe.aem.romannumeralconversion.response.ErrorResponse;
-import org.adobe.aem.romannumeralconversion.exception.InputException;
 import org.adobe.aem.romannumeralconversion.exception.RangeCheckException;
 import org.adobe.aem.romannumeralconversion.response.SuccessResponse;
 import org.adobe.aem.romannumeralconversion.service.IntegerToRomanConversionService;
@@ -31,7 +30,7 @@ public class RomanNumericController {
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<Object> convertIntToRoman(@RequestParam(value = "query", defaultValue = "1") String input) throws InputException, RangeCheckException {
+    public ResponseEntity<Object> convertIntToRoman(@RequestParam(value = "query", defaultValue = "1") String input)  {
 
         Integer inputInteger ;
 
@@ -40,7 +39,7 @@ public class RomanNumericController {
         try {
             inputInteger = Integer.valueOf(input);
             SuccessResponse output = integerToRomanConversionService.convertIntegerToRoman(inputInteger);
-            logger.info("convertIntegerToRoman_TimeTaken_weblayer_ms={}",System.currentTimeMillis() - startTime);
+            logger.info("convertIntegerToRoman_Total_TimeTaken_ms={}",System.currentTimeMillis() - startTime);
             return ResponseEntity.ok().body(output);
         }
         catch(NumberFormatException numberFormatException) {
@@ -48,7 +47,7 @@ public class RomanNumericController {
             ErrorResponse errorResponse = new ErrorResponse();
             errorResponse.setStatus(HttpStatus.BAD_REQUEST);
             errorResponse.setMessage("input to the service should be of type Integer");
-            logger.info("convertIntegerToRoman_TimeTaken_weblayer_ms={}",System.currentTimeMillis() - startTime);
+            logger.info("convertIntegerToRoman_Total_TimeTaken_ms={}",System.currentTimeMillis() - startTime);
             return ResponseEntity.badRequest().body(errorResponse);
 
         }
@@ -57,7 +56,7 @@ public class RomanNumericController {
             ErrorResponse errorResponse = new ErrorResponse();
             errorResponse.setStatus(HttpStatus.BAD_REQUEST);
             errorResponse.setMessage("Invalid input integer, input value should be in the range 1 to 3999");
-            logger.info("convertIntegerToRoman_TimeTaken_weblayer_ms={}",System.currentTimeMillis() - startTime);
+            logger.info("convertIntegerToRoman_Total_TimeTaken_ms={}",System.currentTimeMillis() - startTime);
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorResponse);
         }
     }
@@ -75,7 +74,7 @@ public class RomanNumericController {
         response.setMessage("{\"sample request end point\": {{endpoint}/romannumeral?query={integer}}"+
                 "make sure integer is in the range 1-3999");
         response.setStatus(HttpStatus.OK);
-        response.setMessage("endpoint={endpoint}/romannumeral?query={integer}"+"    .Currently supported method is GET");
+        response.setMessage("endpoint={endpoint}/romannumeral?query={integer}"+" .Currently supported method is GET");
         return ResponseEntity
                 .ok()
                 .allow(HttpMethod.GET)

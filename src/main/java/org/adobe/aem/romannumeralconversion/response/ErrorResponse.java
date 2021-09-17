@@ -10,7 +10,6 @@ public class ErrorResponse {
     //http status code
     private HttpStatus status;
 
-
     // customer error message to the client API
     private String message;
 
