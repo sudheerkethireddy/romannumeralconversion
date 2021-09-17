@@ -1,0 +1,9 @@
+org/adobe/aem/romannumeralconversion/configuration/Swagger2Configuration.class
+org/adobe/aem/romannumeralconversion/controller/RomanNumericController.class
+org/adobe/aem/romannumeralconversion/service/IntegerToRomanConversionServiceImpl.class
+org/adobe/aem/romannumeralconversion/service/IntegerToRomanConversionService.class
+org/adobe/aem/romannumeralconversion/response/SuccessResponse.class
+org/adobe/aem/romannumeralconversion/exception/RangeCheckException.class
+org/adobe/aem/romannumeralconversion/response/ErrorResponse.class
+org/adobe/aem/romannumeralconversion/RomanNumericServiceApplication.class
+org/adobe/aem/romannumeralconversion/exception/InputException.class
