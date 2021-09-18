@@ -37,6 +37,9 @@ pagerduty.
 Also implemented swagger doc that gives the customer access to the API and play  with. This swagger doc is implemented using Spring boot Open API.
 The swagger doc can be accessed at the uri `http://localhost:8093/swagger-ui/index.html`
 
+## Dockerization:
+Also dockerized the REST API and checked in the docker code in `Dockerfile`. 
+
 ## Code coverage
 
 extensive unit tests are added to make sure that all scenarios covered. The line coverage
