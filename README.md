@@ -9,6 +9,16 @@ The problem statement is to return only the roman numeral of an input integer, w
 implemented GET call. When the client calls POST, PUT DELETE operations, we return NOT SUPPORTED implying that only GET is supported.
 Also implemented OPTIONS call that gives you overview of the allowed calls by the end point.
 
+## Organization of the flow
+The entry point to the application is via the `RomanNumericServiceApplication` that resides outside of all the classes since
+it can load all the beans under various packages which will be within the class path of the `RomanNumericServiceApplication` class.
+Upon starting this class all the beans are loaded into spring-context.
+`RomanNumericController` class is the entry point for every API call. The 
+controller bean inturn calls the service class named `IntegerToRomanConversionService` that holds
+the business logic. The problem statement is to calculate roman numeral for integers in the range 1-3999 which is finite and can be handled
+by the service class and in-memory without any database required. Since there is no Calls to API, there are no DAO/DTO beans to be defined.
+
+
 
 ## Swagger Doc
 Also implemented swagger doc that gives the customer access to the API and play  with. This swagger doc is implemented using Spring boot Open API.
