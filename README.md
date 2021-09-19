@@ -1,6 +1,12 @@
 # Numeral to Roman Conversion API
 This repo holds the code that exposes a REST API that coverts integer to numeric.
 
+## System Requirements
+Below are the system requirements for running the project
+1. JDK 1.8
+2. Maven 3.2+
+3. Docker
+4. IDE of choice between Eclipse or IntelliJ
 
 ## Implementation rationale
 The problem statement is to develop a REST API that converts integer to roman numeral. Since there is only
@@ -17,6 +23,12 @@ Upon starting this class all the beans are loaded into spring-context.
 controller bean inturn calls the service class named `IntegerToRomanConversionService` that holds
 the business logic. The problem statement is to calculate roman numeral for integers in the range 1-3999 which is finite and can be handled
 by the service class and in-memory without any database required. Since there is no Calls to API, there are no DAO/DTO beans to be defined.
+
+## Profiling
+Since there are environment specific properties that needs to be added,  there are seperate yml files for each of the environments.
+The environment specific yml files are in `src/main/resources` location. The default file is named as `application.yml`.
+
+
 
 ## Metrics, Monitoring and Alerting:
 
