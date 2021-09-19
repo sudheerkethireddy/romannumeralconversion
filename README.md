@@ -50,7 +50,11 @@ Also implemented swagger doc that gives the customer access to the API and play 
 The swagger doc can be accessed at the uri `http://localhost:8093/swagger-ui/index.html`
 
 ## Dockerization:
-Also dockerized the REST API and checked in the docker code in `Dockerfile`. 
+Also dockerized the REST API and checked in the docker code in `Dockerfile`. The advantage with docker is its self contained and the 
+same docker image can be propagated acorss various environments with environment specific profiles created.
+Below are the steps 
+1. Build docker image ( docker build -t romannumeral-conversion)
+2. docker run -e "SPRING_PROFILES_ACTIVE=prd" -t romannumeral-conversion
 
 ## Code coverage
 
