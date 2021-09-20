@@ -38,7 +38,7 @@
         <appender-ref ref="Console" />
     </root>
 
-    <!-- LOG "com.baeldung*" at TRACE level -->
+    <!-- LOG  at INFO level -->
     <logger name="org.adobe.aem.romannumeralconversion*" level="info" additivity="false">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
